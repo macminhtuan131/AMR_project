@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<robot name="linorobot2_2wd" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find linorobot2_description)/urdf/2wd_properties.urdf.xacro" />
+  <xacro:include filename="$(find linorobot2_description)/urdf/mech/base.urdf.xacro" />
+  <xacro:include filename="$(find linorobot2_description)/urdf/mech/wheel.urdf.xacro" />
+  <xacro:include filename="$(find linorobot2_description)/urdf/sensors/imu.urdf.xacro" />
+  <!-- 1. ADDED THE LASER SENSOR INCLUDE -->
+  <xacro:include filename="$(find linorobot2_description)/urdf/sensors/laser.urdf.xacro" />
+  <xacro:include filename="$(find linorobot2_description)/urdf/controllers/diff_drive.urdf.xacro" />
+
+  <xacro:base 
+    length="${base_length}" 
+    width="${base_width}" 
+    height="${base_height}" 
+    mass="${base_mass}"
+    wheel_radius="${wheel_radius}"
+    wheel_pos_z="${wheel_pos_z}"
+  />
+
+  <xacro:wheel 
+    side="left"
+    radius="${wheel_radius}" 
+    width="${wheel_width}" 
+    pos_x="${wheel_pos_x}" 
+    pos_y="${wheel_pos_y}" 
+    pos_z="${wheel_pos_z}" 
+    mass="${wheel_mass}"
+  />
+
+  <xacro:wheel 
+    side="right"
+    radius="${wheel_radius}" 
+    width="${wheel_width}" 
+    pos_x="${wheel_pos_x}" 
+    pos_y="${-wheel_pos_y}" 
+    pos_z="${wheel_pos_z}" 
+    mass="${wheel_mass}"
+  />
+
+  <xacro:imu/>
+  
+  <!-- 2. ADDED THE LASER MACRO INSTANTIATION -->
+  <xacro:laser 
+    update_rate="10" 
+    ray_count="360" 
+    min_angle="-3.1416" 
+    max_angle="3.1416" 
+    min_range="0.15" 
+    max_range="12.0" 
+    frame_id="laser" 
+    topic_name="scan">
+    <origin xyz="0 0 0.2" rpy="0 0 0"/>
+  </xacro:laser>
+
+  <!-- CUSTOM CASTER 1 (LEFT) -->
+  <link name="caster_bracket_front1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://linorobot2_description/urdf/mech/xe_meshes/caster_bracket_front1.STL" />
+      </geometry>
+      <material name="gray"><color rgba="0.5 0.5 0.5 1"/></material>
+    </visual>
+  </link>
+  <!-- CHANGED TO FIXED -->
+  <joint name="swivel_joint_front1" type="fixed">
+    <origin xyz="0.24362 0.088 -0.0215" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="caster_bracket_front1" />
+  </joint>
+
+  <link name="caster_wheel_front">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://linorobot2_description/urdf/mech/xe_meshes/caster_wheel_front.STL" />
+      </geometry>
+      <material name="dark_gray"><color rgba="0.25 0.25 0.25 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.025"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- CHANGED TO FIXED -->
+  <joint name="wheel_joint_front1" type="fixed">
+    <origin xyz="-0.016 0 -0.025" rpy="1.5708 0 0" />
+    <parent link="caster_bracket_front1" />
+    <child link="caster_wheel_front" />
+  </joint>
+  <gazebo reference="caster_wheel_front">
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+  </gazebo>
+
+  <!-- CUSTOM CASTER 2 (RIGHT) -->
+  <link name="caster_bracket_front2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://linorobot2_description/urdf/mech/xe_meshes/caster_bracket_front2.STL" />
+      </geometry>
+      <material name="gray"><color rgba="0.5 0.5 0.5 1"/></material>
+    </visual>
+  </link>
+  <!-- CHANGED TO FIXED -->
+  <joint name="swivel_joint_front2" type="fixed">
+    <origin xyz="0.24362 -0.088 -0.0215" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="caster_bracket_front2" />
+  </joint>
+
+  <link name="caster_wheel_front2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://linorobot2_description/urdf/mech/xe_meshes/caster_wheel_front.STL" />
+      </geometry>
+      <material name="dark_gray"><color rgba="0.25 0.25 0.25 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.025"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- CHANGED TO FIXED -->
+  <joint name="wheel_joint_front2" type="fixed">
+    <origin xyz="-0.016 0 -0.025" rpy="1.5708 0 0" />
+    <parent link="caster_bracket_front2" />
+    <child link="caster_wheel_front2" />
+  </joint>
+  <gazebo reference="caster_wheel_front2">
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+  </gazebo>
+
+  <xacro:diff_drive_controller
+    wheel_separation="${wheel_pos_y * 2}"
+    wheel_radius="${wheel_radius}"
+    wheel_torque="${wheel_torque}"
+  />
+</robot>

@@ -1,0 +1,1 @@
+/home/tuanmac/linorobot2_ws/build/linorobot2_navigation/ament_cmake_environment_hooks/local_setup.bash

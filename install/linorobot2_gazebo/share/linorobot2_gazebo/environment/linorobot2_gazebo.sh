@@ -1,0 +1,1 @@
+/home/tuanmac/linorobot2_ws/build/linorobot2_gazebo/ament_cmake_environment_hooks/linorobot2_gazebo.sh

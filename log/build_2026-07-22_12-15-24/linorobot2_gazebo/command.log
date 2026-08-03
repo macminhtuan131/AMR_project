@@ -1,0 +1,6 @@
+Invoking command in '/home/tuanmac/linorobot2_ws/build/linorobot2_gazebo': /usr/bin/cmake /home/tuanmac/linorobot2_ws/src/linorobot2-humble/linorobot2_gazebo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tuanmac/linorobot2_ws/install/linorobot2_gazebo
+Invoked command in '/home/tuanmac/linorobot2_ws/build/linorobot2_gazebo' returned '0': /usr/bin/cmake /home/tuanmac/linorobot2_ws/src/linorobot2-humble/linorobot2_gazebo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tuanmac/linorobot2_ws/install/linorobot2_gazebo
+Invoking command in '/home/tuanmac/linorobot2_ws/build/linorobot2_gazebo': /usr/bin/cmake --build /home/tuanmac/linorobot2_ws/build/linorobot2_gazebo -- -j16 -l16
+Invoked command in '/home/tuanmac/linorobot2_ws/build/linorobot2_gazebo' returned '0': /usr/bin/cmake --build /home/tuanmac/linorobot2_ws/build/linorobot2_gazebo -- -j16 -l16
+Invoking command in '/home/tuanmac/linorobot2_ws/build/linorobot2_gazebo': /usr/bin/cmake --install /home/tuanmac/linorobot2_ws/build/linorobot2_gazebo
+Invoked command in '/home/tuanmac/linorobot2_ws/build/linorobot2_gazebo' returned '0': /usr/bin/cmake --install /home/tuanmac/linorobot2_ws/build/linorobot2_gazebo

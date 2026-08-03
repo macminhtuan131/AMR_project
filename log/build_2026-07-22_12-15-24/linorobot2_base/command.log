@@ -1,0 +1,6 @@
+Invoking command in '/home/tuanmac/linorobot2_ws/build/linorobot2_base': /usr/bin/cmake /home/tuanmac/linorobot2_ws/src/linorobot2-humble/linorobot2_base -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tuanmac/linorobot2_ws/install/linorobot2_base
+Invoked command in '/home/tuanmac/linorobot2_ws/build/linorobot2_base' returned '0': /usr/bin/cmake /home/tuanmac/linorobot2_ws/src/linorobot2-humble/linorobot2_base -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tuanmac/linorobot2_ws/install/linorobot2_base
+Invoking command in '/home/tuanmac/linorobot2_ws/build/linorobot2_base': /usr/bin/cmake --build /home/tuanmac/linorobot2_ws/build/linorobot2_base -- -j16 -l16
+Invoked command in '/home/tuanmac/linorobot2_ws/build/linorobot2_base' returned '0': /usr/bin/cmake --build /home/tuanmac/linorobot2_ws/build/linorobot2_base -- -j16 -l16
+Invoking command in '/home/tuanmac/linorobot2_ws/build/linorobot2_base': /usr/bin/cmake --install /home/tuanmac/linorobot2_ws/build/linorobot2_base
+Invoked command in '/home/tuanmac/linorobot2_ws/build/linorobot2_base' returned '0': /usr/bin/cmake --install /home/tuanmac/linorobot2_ws/build/linorobot2_base
