@@ -1,13 +1,13 @@
 Panels:
   - Class: rviz_common/Displays
-    Help Height: 78
+    Help Height: 126
     Name: Displays
     Property Tree Widget:
       Expanded:
         - /Global Options1
         - /RobotModel1/Description Topic1
       Splitter Ratio: 0.5
-    Tree Height: 613
+    Tree Height: 565
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
@@ -51,23 +51,25 @@ Visualization Manager:
           Value: true
         base_link:
           Value: true
-        camera_link:
+        caster_bracket_front1:
           Value: true
-        front_left_wheel_link:
+        caster_bracket_front2:
           Value: true
-        front_right_wheel_link:
+        caster_wheel_front:
+          Value: true
+        caster_wheel_front2:
           Value: true
         imu_link:
           Value: true
         laser:
           Value: true
+        left_wheel_link:
+          Value: true
         map:
           Value: true
         odom:
           Value: true
-        rear_left_wheel_link:
-          Value: true
-        rear_right_wheel_link:
+        right_wheel_link:
           Value: true
       Marker Scale: 0.5
       Name: TF
@@ -79,19 +81,19 @@ Visualization Manager:
           odom:
             base_footprint:
               base_link:
-                camera_link:
-                  {}
+                caster_bracket_front1:
+                  caster_wheel_front:
+                    {}
+                caster_bracket_front2:
+                  caster_wheel_front2:
+                    {}
                 imu_link:
                   {}
                 laser:
                   {}
-              front_left_wheel_link:
+              left_wheel_link:
                 {}
-              front_right_wheel_link:
-                {}
-              rear_left_wheel_link:
-                {}
-              rear_right_wheel_link:
+              right_wheel_link:
                 {}
       Update Interval: 0
       Value: true
@@ -122,17 +124,22 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        camera_link:
+        caster_bracket_front1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        front_left_wheel_link:
+        caster_bracket_front2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        front_right_wheel_link:
+        caster_wheel_front:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        caster_wheel_front2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -146,16 +153,19 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        rear_left_wheel_link:
+        left_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        rear_right_wheel_link:
+        right_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+      Mass Properties:
+        Inertia: false
+        Mass: false
       Name: RobotModel
       TF Prefix: ""
       Update Interval: 0
@@ -170,6 +180,7 @@ Visualization Manager:
       Topic:
         Depth: 5
         Durability Policy: Volatile
+        Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /map
@@ -184,8 +195,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 10.362611770629883
-        Min Value: -0.29685065150260925
+        Max Value: 13.28459644317627
+        Min Value: 2.550868272781372
         Value: true
       Axis: X
       Channel Name: intensity
@@ -208,6 +219,7 @@ Visualization Manager:
       Topic:
         Depth: 5
         Durability Policy: Volatile
+        Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /scan
@@ -229,6 +241,9 @@ Visualization Manager:
     - Class: rviz_default_plugins/Measure
       Line color: 128; 128; 0
     - Class: rviz_default_plugins/SetInitialPose
+      Covariance x: 0.25
+      Covariance y: 0.25
+      Covariance yaw: 0.06853891909122467
       Topic:
         Depth: 5
         Durability Policy: Volatile
@@ -256,7 +271,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0
+      Angle: -0.07500001043081284
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -266,11 +281,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 32.17724609375
+      Scale: 49.762657165527344
       Target Frame: base_link
       Value: TopDownOrtho (rviz_default_plugins)
-      X: -1.7143195867538452
-      Y: 1.3631300926208496
+      X: 2.6166718006134033
+      Y: 2.935779333114624
     Saved: ~
 Window Geometry:
   Displays:

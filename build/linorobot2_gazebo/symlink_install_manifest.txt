@@ -2,6 +2,7 @@
 /home/tuanmac/linorobot2_ws/install/linorobot2_gazebo/share/linorobot2_gazebo/rviz/view_urdf.rviz
 /home/tuanmac/linorobot2_ws/install/linorobot2_gazebo/share/linorobot2_gazebo/worlds/gas_station.world
 /home/tuanmac/linorobot2_ws/install/linorobot2_gazebo/share/linorobot2_gazebo/worlds/playground.world
+/home/tuanmac/linorobot2_ws/install/linorobot2_gazebo/share/linorobot2_gazebo/worlds/speedbump_test.world
 /home/tuanmac/linorobot2_ws/install/linorobot2_gazebo/lib/linorobot2_gazebo/command_timeout.py
 /home/tuanmac/linorobot2_ws/install/linorobot2_gazebo/share/linorobot2_gazebo/environment/linorobot2_gazebo.sh
 /home/tuanmac/linorobot2_ws/install/linorobot2_gazebo/share/ament_index/resource_index/package_run_dependencies/linorobot2_gazebo

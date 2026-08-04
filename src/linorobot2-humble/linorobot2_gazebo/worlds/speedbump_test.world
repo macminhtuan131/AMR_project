@@ -1,0 +1,151 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="speedbump_world">
+    
+    <!-- 1. Include the Sun for lighting -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    
+    <!-- 2. Include the Floor --> 
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- 3. Surrounding Box Walls -->
+    <model name="surrounding_walls">
+      <static>true</static>
+      
+      <!-- Tường phía Bắc (Y = 2.0) -->
+      <link name="wall_north">
+        <pose>3.0 2.0 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>6.0 0.2 1.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>6.0 0.2 1.0</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+
+      <!-- Tường phía Nam (Y = -2.0) -->
+      <link name="wall_south">
+        <pose>3.0 -2.0 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>6.0 0.2 1.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>6.0 0.2 1.0</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+
+      <!-- Tường phía Đông (X = 6.0) -->
+      <link name="wall_east">
+        <pose>6.0 0.0 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>0.2 4.0 1.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 4.0 1.0</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+
+      <!-- Tường phía Tây (X = 0.0) -->
+      <link name="wall_west">
+        <pose>0.0 0.0 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>0.2 4.0 1.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 4.0 1.0</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 4. Your Custom Speed Bump (Box) -->
+    <model name="speed_bump_1">
+      <static>true</static> 
+      <pose>2.0 0.0 0.015 0 0 0</pose> 
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <!-- Thay đổi 2.0 thành 4.0 -->
+              <size>0.2 4.0 0.03</size> 
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <!-- Thay đổi 2.0 thành 4.0 -->
+              <size>0.2 4.0 0.03</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Yellow</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 5. Tall Speed Bump 2 (Cylinder) -->
+    <model name="tall_speed_bump_2">
+      <static>true</static>
+      <pose>4.0 0.0 -0.09 1.5708 0 0</pose> 
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.15</radius> 
+              <!-- Thay đổi 2.0 thành 4.0 -->
+              <length>4.0</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.15</radius>
+              <!-- Thay đổi 2.0 thành 4.0 -->
+              <length>4.0</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Yellow</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+    
+  </world>
+</sdf>

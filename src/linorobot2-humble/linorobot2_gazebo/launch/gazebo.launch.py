@@ -19,9 +19,6 @@ from launch.substitutions import LaunchConfiguration, Command, PathJoinSubstitut
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
-from launch_ros.actions import ComposableNodeContainer
-from launch_ros.descriptions import ComposableNode
-
 
 def generate_launch_description():
     use_sim_time = True
@@ -30,8 +27,10 @@ def generate_launch_description():
         [FindPackageShare("linorobot2_base"), "config", "ekf.yaml"]
     )
 
+    # LƯU Ý: Nếu file SDF chứa tường & speedbump của bạn tên là speedbump_world.sdf
+    # và được lưu trong thư mục worlds của linorobot2_gazebo, hãy đổi "playground.world" thành tên file của bạn nhé.
     world_path = PathJoinSubstitution(
-        [FindPackageShare("linorobot2_gazebo"), "worlds", "playground.world"]
+        [FindPackageShare("linorobot2_gazebo"), "worlds", "playground.world"] 
     )
 
     robot_base = os.getenv('LINOROBOT2_BASE')
@@ -43,7 +42,6 @@ def generate_launch_description():
         [FindPackageShare('linorobot2_description'), 'launch', 'description.launch.py']
     )
     
-
     return LaunchDescription([
         DeclareLaunchArgument(
             name='urdf', 
@@ -63,21 +61,24 @@ def generate_launch_description():
             description='Gazebo world'
         ),
 
+        # Đã cập nhật tọa độ spawn x = 0.5
         DeclareLaunchArgument(
             name='spawn_x', 
-            default_value='0.0',
+            default_value='0.5',
             description='Robot spawn position in X axis'
         ),
 
+        # Đã cập nhật tọa độ spawn y = 0.0
         DeclareLaunchArgument(
             name='spawn_y', 
             default_value='0.0',
             description='Robot spawn position in Y axis'
         ),
 
+        # Đã cập nhật tọa độ spawn z = 0.15 để tránh kẹt sàn
         DeclareLaunchArgument(
             name='spawn_z', 
-            default_value='0.0',
+            default_value='0.15',
             description='Robot spawn position in Z axis'
         ),
             
@@ -92,6 +93,8 @@ def generate_launch_description():
             output='screen'
         ),
 
+        # Đây chính là Node đã có sẵn của thư viện dùng để đẩy robot vào
+        # Nó sẽ tự động đọc các giá trị spawn_x, spawn_y, spawn_z ở bên trên
         Node(
             package='gazebo_ros',
             executable='spawn_entity.py',
@@ -134,8 +137,3 @@ def generate_launch_description():
             }.items()
         )
     ])
-
-#sources: 
-#https://navigation.ros.org/setup_guides/index.html#
-#https://answers.ros.org/question/374976/ros2-launch-gazebolaunchpy-from-my-own-launch-file/
-#https://github.com/ros2/rclcpp/issues/940

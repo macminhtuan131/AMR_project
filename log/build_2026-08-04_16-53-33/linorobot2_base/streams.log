@@ -1,0 +1,22 @@
+[0.016s] Invoking command in '/home/tuanmac/linorobot2_ws/build/linorobot2_base': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tuanmac/ros2_ws/install/my_robot_controllr:/opt/ros/humble /usr/bin/cmake --build /home/tuanmac/linorobot2_ws/build/linorobot2_base -- -j16 -l16
+[0.079s] Invoked command in '/home/tuanmac/linorobot2_ws/build/linorobot2_base' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tuanmac/ros2_ws/install/my_robot_controllr:/opt/ros/humble /usr/bin/cmake --build /home/tuanmac/linorobot2_ws/build/linorobot2_base -- -j16 -l16
+[0.080s] Invoking command in '/home/tuanmac/linorobot2_ws/build/linorobot2_base': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tuanmac/ros2_ws/install/my_robot_controllr:/opt/ros/humble /usr/bin/cmake --install /home/tuanmac/linorobot2_ws/build/linorobot2_base
+[0.095s] -- Install configuration: ""
+[0.095s] -- Execute custom install script
+[0.096s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/linorobot2_base/config/ekf.yaml
+[0.096s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/ament_index/resource_index/package_run_dependencies/linorobot2_base
+[0.097s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/ament_index/resource_index/parent_prefix_path/linorobot2_base
+[0.098s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/linorobot2_base/environment/ament_prefix_path.sh
+[0.098s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/linorobot2_base/environment/ament_prefix_path.dsv
+[0.099s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/linorobot2_base/environment/path.sh
+[0.099s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/linorobot2_base/environment/path.dsv
+[0.099s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/linorobot2_base/local_setup.bash
+[0.099s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/linorobot2_base/local_setup.sh
+[0.099s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/linorobot2_base/local_setup.zsh
+[0.102s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/linorobot2_base/local_setup.dsv
+[0.102s] -- Symlinking: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/linorobot2_base/package.dsv
+[0.113s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/ament_index/resource_index/packages/linorobot2_base
+[0.113s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/linorobot2_base/cmake/linorobot2_baseConfig.cmake
+[0.113s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/linorobot2_base/cmake/linorobot2_baseConfig-version.cmake
+[0.114s] -- Up-to-date symlink: /home/tuanmac/linorobot2_ws/install/linorobot2_base/share/linorobot2_base/package.xml
+[0.148s] Invoked command in '/home/tuanmac/linorobot2_ws/build/linorobot2_base' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tuanmac/ros2_ws/install/my_robot_controllr:/opt/ros/humble /usr/bin/cmake --install /home/tuanmac/linorobot2_ws/build/linorobot2_base
