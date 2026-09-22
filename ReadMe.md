@@ -3,24 +3,69 @@
 This workspace contains a ROS 2 Humble Linorobot2 simulation. The examples below
 use a 2-wheel-drive robot and the included `playground.world` Gazebo world.
 
-## 1. Build the workspace
+## 1. Install Gazebo, RViz, and ROS dependencies
+
+These commands assume Ubuntu 22.04 with ROS 2 Humble already installed. If ROS
+2 Humble is not installed, install it first and then run:
+
+```bash
+sudo apt update
+sudo apt install -y \
+  ros-humble-gazebo-ros-pkgs \
+  ros-humble-rviz2 \
+  ros-humble-teleop-twist-keyboard \
+  ros-humble-navigation2 \
+  ros-humble-nav2-bringup \
+  ros-humble-slam-toolbox \
+  ros-humble-robot-localization \
+  ros-humble-xacro \
+  ros-humble-joint-state-publisher \
+  ros-humble-tf2-tools \
+  python3-colcon-common-extensions \
+  python3-rosdep
+```
+
+`ros-humble-gazebo-ros-pkgs` installs Gazebo Classic integration used by this
+workspace's `gazebo.launch.py`. `ros-humble-rviz2` installs RViz.
+
+Initialize `rosdep` only if it has not been initialized on this computer:
+
+```bash
+sudo rosdep init
+rosdep update
+```
+
+If `sudo rosdep init` reports that its sources list already exists, skip that
+command and run only `rosdep update`.
+
+Confirm the main applications are available:
+
+```bash
+gazebo --version
+rviz2 --help
+```
+
+## 2. Build the workspace
 
 Run this after cloning the workspace or changing source/configuration files:
 
 ```bash
-cd /home/tuanmac/linorobot_ws
+# Change this value if the workspace is stored somewhere else.
+export LINOROBOT2_WS="$HOME/linorobot_ws"
+cd "$LINOROBOT2_WS"
 source /opt/ros/humble/setup.bash
 rosdep install --from-paths src --ignore-src -r -y \
   --skip-keys "microxrcedds_agent micro_ros_agent"
 colcon build --symlink-install
 ```
 
-## 2. Prepare each terminal
+## 3. Prepare each terminal
 
 Open a new terminal for each process below and run:
 
 ```bash
-cd /home/tuanmac/linorobot_ws
+export LINOROBOT2_WS="$HOME/linorobot_ws"
+cd "$LINOROBOT2_WS"
 source /opt/ros/humble/setup.bash
 source install/setup.bash
 export LINOROBOT2_BASE=2wd
@@ -29,7 +74,7 @@ export LINOROBOT2_BASE=2wd
 Valid base values are `2wd`, `4wd`, and `mecanum`. Use the same value in every
 terminal.
 
-## 3. Run Gazebo
+## 4. Run Gazebo
 
 Terminal 1:
 
@@ -51,7 +96,7 @@ ros2 launch linorobot2_gazebo gazebo.launch.py \
 Other included worlds are `gas_station.world`, `playground.world`, and
 `speedbump_test.world`.
 
-## 4. Drive with keyboard teleop
+## 5. Drive with keyboard teleop
 
 Terminal 2:
 
@@ -70,7 +115,7 @@ Important keys:
 
 Keep the teleop terminal focused while driving.
 
-## 5. Open RViz
+## 6. Open RViz
 
 For a basic robot view, Terminal 3:
 
@@ -83,7 +128,7 @@ ros2 run rviz2 rviz2 -d \
 For SLAM or navigation, use the dedicated RViz configurations in the next
 sections instead.
 
-## 6. SLAM and map creation
+## 7. SLAM and map creation
 
 Keep Gazebo running. In Terminal 3, start SLAM Toolbox, Nav2, and RViz:
 
@@ -95,23 +140,23 @@ Drive around with keyboard teleop until the required area is mapped. Then save
 the map from another prepared terminal:
 
 ```bash
-mkdir -p /home/tuanmac/linorobot_ws/maps
+mkdir -p "$LINOROBOT2_WS/maps"
 ros2 run nav2_map_server map_saver_cli \
-  -f /home/tuanmac/linorobot_ws/maps/my_map \
+  -f "$LINOROBOT2_WS/maps/my_map" \
   --ros-args -p save_map_timeout:=10000
 ```
 
 This creates `my_map.yaml` and `my_map.pgm`. Stop SLAM with `Ctrl+C` before
 starting localization/navigation.
 
-## 7. Autonomous navigation with Nav2
+## 8. Autonomous navigation with Nav2
 
 Keep Gazebo running. Start Nav2 with an existing map:
 
 ```bash
 ros2 launch linorobot2_navigation navigation.launch.py \
   sim:=true rviz:=true \
-  map:=/home/tuanmac/linorobot_ws/maps/my_map.yaml
+  map:="$LINOROBOT2_WS/maps/my_map.yaml"
 ```
 
 The repository also includes a ready-made playground map:
@@ -130,7 +175,7 @@ In RViz:
 The initial `map` to `base_link` transform warning is expected until the initial
 pose is set.
 
-## 8. Run the real robot instead of Gazebo
+## 9. Run the real robot instead of Gazebo
 
 Do not run Gazebo for this mode. On the robot computer:
 
@@ -171,4 +216,3 @@ ros2 run tf2_tools view_frames
 
 If a package or launch file cannot be found, rebuild and source the workspace
 again. Stop any running command with `Ctrl+C` before closing its terminal.
-
